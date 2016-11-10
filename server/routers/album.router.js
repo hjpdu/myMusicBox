@@ -55,6 +55,17 @@ router.put('/albums/:id', function(req, res){
     });
   });
 });
-router.delete('/albums/:id', function(req, res){});
+router.delete('/albums/:id', function(req, res){
+  Album.findOneAndRemove({_id:req.params.id}, function(err,deletedAlbum){
+    if(err){
+      res.status(500).json({
+        err:err
+      });
+    }
+    res.status(200).json({
+      msg: deletedAlbum
+    });
+  });
+});
 
 module.exports = router;
