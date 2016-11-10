@@ -43,7 +43,18 @@ router.post('/albums', function(req, res){
     });
   });
 });
-router.put('/albums/:id', function(req, res){});
+router.put('/albums/:id', function(req, res){
+  Album.findOneAndUpdate({_id: req.params.id}, req.body, function(err, oldAlbumInfo){
+    if(err){
+      res.status(500).json({
+        err:err
+      });
+    }
+    res.status(200).json({
+      msg: oldAlbumInfo
+    });
+  });
+});
 router.delete('/albums/:id', function(req, res){});
 
 module.exports = router;
