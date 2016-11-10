@@ -12,7 +12,7 @@ var albumSchema = new Schema({
     required: true
   },
 
-  ReleaseDate:{
+  releaseDate:{
     type: Date,
     required: true
   },
