@@ -23,6 +23,6 @@ var albumSchema = new Schema({
   }
 });
 
-var Album = mongoose.model('Album, albumSchema');
+var Album = mongoose.model('Album', albumSchema);
 //the Grand platonic 'Album'  form now exists
 module.exports = Album;

@@ -12,7 +12,6 @@ server.use(express.static(__dirname + '/public'));
 
 server.get('/', function(req,res){
   res.sendFile('public/html/index.html', {root:__dirname});
-
 });
 
 server.use(albumRouter);
