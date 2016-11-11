@@ -30,6 +30,18 @@ router.get('/albums/:id', function(req, res){
     });
   });
 });
+router.get('/albums/date/:date', function(req,res){
+  Album.find({releaseDate: req.params.date}, function(err, foundAlbums){
+    if(err){
+      res.status(500).json({
+        err:err
+      });
+    }
+    res.status(200).json({
+      albums: foundAlbums
+    });
+  });
+});
 router.post('/albums', function(req, res){
   var album = new Album(req.body);
   album.save(function(err){
