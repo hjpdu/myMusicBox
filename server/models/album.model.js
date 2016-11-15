@@ -20,6 +20,12 @@ var albumSchema = new Schema({
   isGood: {
     type: Boolean,
     required: true
+  },
+
+  ratingNum: {
+    type: Number,
+    required: false,
+    max:10
   }
 });
 

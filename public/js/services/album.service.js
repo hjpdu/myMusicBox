@@ -8,7 +8,8 @@
     init();
     var albums = [];
     return {
-      get: getAllAlbums
+      get: getAllAlbums,
+      create: createOneAlbum
     };
 
     function init(){
@@ -22,6 +23,16 @@
     }
     function getAllAlbums(){
       return albums;
+    }
+    function createOneAlbum(album){
+      // debugger;
+      $http.post('/albums', album)
+           .then(function(response){
+             albums.push(album);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
     }
 
   }

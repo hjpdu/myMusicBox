@@ -10,12 +10,15 @@
       <button id='add-album-button'ng-click='addAlbum(newAlbum)'>Add Album</button>
       <div ng-show='isAdding' id='input-area'>
         <ul>
-          <li><input type="text" placeholder="Title"></li>
-          <li><input type="text" placeholder="Artist"></li>
-          <li><input type="date" placeholder="Release Date"></li>
-          <li><input type="number" placeholder="Rating"></li>
-          <li><input type="checkbox"></li>
-          <button id='save-album-button' ng-click='saveAlbum(SavedAlbum)'>Save Album</button>
+          <li>Fill out the following information to add an album
+              to the database!
+          </li>
+          <li><input type="text" ng-model='newAlbum.title' placeholder="Title"></li>
+          <li><input type="text" ng-model='newAlbum.artist' placeholder="Artist"></li>
+          <li><input type="date" ng-model='newAlbum.releaseDate' placeholder="Release Date"></li>
+          <li><input type="number" ng-model='newAlbum.ratingNum' placeholder="Rating"></li>
+          <li><input type="checkbox"  ng-model='newAlbum.isGood' ng-true='true' ng-false = 'false'>This Album Was Good!</li>
+          <button id='save-album-button' ng-click='saveAlbum(newAlbum)'>Save Album</button>
         </ul>
       </div>
 

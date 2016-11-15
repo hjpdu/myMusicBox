@@ -18,7 +18,9 @@
       $scope.isAdding = true;
     }
 
-    function saveAlbum(savedAlbum){
+    function saveAlbum(newAlbum){
+      AlbumService.create(newAlbum);
+      $scope.newAlbum = '';
       $scope.isAdding = false;
     }
 
