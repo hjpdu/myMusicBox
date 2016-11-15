@@ -18,14 +18,15 @@
           <li><input type="date" ng-model='newAlbum.releaseDate' placeholder="Release Date"></li>
           <li><input type="number" ng-model='newAlbum.ratingNum' placeholder="Rating"></li>
           <li><input type="checkbox"  ng-model='newAlbum.isGood' ng-true='true' ng-false = 'false'>This Album Was Good!</li>
-          <button id='save-album-button' ng-click='saveAlbum(newAlbum)'>Save Album</button>
+          <button ng-click='saveAlbum(newAlbum)'>Save Album</button>
         </ul>
       </div>
 
       <div id='list-of-albums'>
         <ul>
           <li ng-repeat ='album in albums track by $index'>
-            <p>{{ album.title}}</p>
+            <span>{{album.title}}</span>
+            <button ng-click='deleteAlbum($index, album)'>&times;</button>
           </li>
         </ul>
 

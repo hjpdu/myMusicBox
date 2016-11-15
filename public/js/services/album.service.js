@@ -9,7 +9,8 @@
     var albums = [];
     return {
       get: getAllAlbums,
-      create: createOneAlbum
+      create: createOneAlbum,
+      delete: deleteOneAlbum
     };
 
     function init(){
@@ -29,6 +30,15 @@
       $http.post('/albums', album)
            .then(function(response){
              albums.push(album);
+           })
+           .catch(function(err){
+             console.log(err);
+           });
+    }
+    function deleteOneAlbum(index, deletedAlbum){
+      $http.delete('/albums/' + deletedAlbum._id)
+           .then(function(){
+             albums.splice(index, 1);
            })
            .catch(function(err){
              console.log(err);

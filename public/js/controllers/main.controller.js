@@ -8,6 +8,7 @@
     $scope.albums = AlbumService.get();
     $scope.addAlbum = addAlbum;
     $scope.saveAlbum = saveAlbum;
+    $scope.deleteAlbum = deleteAlbum;
 
     $scope.$watch(function(){
       return AlbumService.get();
@@ -22,6 +23,9 @@
       AlbumService.create(newAlbum);
       $scope.newAlbum = '';
       $scope.isAdding = false;
+    }
+    function deleteAlbum(index, album){
+      AlbumService.delete(index, album);
     }
 
   }
