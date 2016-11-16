@@ -24,7 +24,7 @@ var albumSchema = new Schema({
 
   ratingNum: {
     type: Number,
-    required: false,
+    // required: false,
     max:10
   }
 });

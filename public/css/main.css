@@ -117,3 +117,15 @@ h6 {
 }
 
 /*animations*/
+/*
+.list-of-items {
+    opacity: 1;
+}
+.list-of-items.ng-enter {
+    -webkit-transition: 1s;
+    transition: 1s;
+    opacity: 0;
+}
+.list-of-items.ng-enter-active {
+    opacity: 1;
+}*/
