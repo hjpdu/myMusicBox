@@ -35,11 +35,14 @@
           <div class="col-sm-4">
             <div>
               <input type="text" ng-show='album.isUpdating' ng-model='album.title'>
-              <span ng-hide='album.isUpdating'>{{album.title}}</span>
-              <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
-              <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-              <button ng-click='deleteAlbum($index, album)'>&times;</button>
-              <button ng-click='moreDetails(album)'>More</button>
+              <span ng-hide='album.isUpdating'><h4>{{album.title}}</h2></span>
+                <div class="btn-group">
+                  <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
+                  <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                  <button ng-click='deleteAlbum($index, album)'>&times;</button>
+                  <button ng-click='moreDetails(album)'>More</button>
+                </div>
+
             </div>
           </div>
           <div class="col-sm-8" ng-show='album.isShowing'>
