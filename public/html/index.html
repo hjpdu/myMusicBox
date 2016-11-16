@@ -25,16 +25,36 @@
       <div id='list-of-albums'>
         <ul>
           <li ng-repeat ='album in albums track by $index'>
-            <span>{{album.title}}</span>
-            <button ng-click='deleteAlbum($index, album)'>&times;</button>
+            <input type="text" ng-show='album.isUpdating' ng-model='album.title'>
+            <span ng-hide='album.isUpdating'>{{album.title}}</span>
+            <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Update</button>
             <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+            <button ng-click='deleteAlbum($index, album)'>&times;</button>
             <button ng-click='moreDetails(album)'>More</button>
             <div ng-show='album.isShowing'>
               <ul>
-                <li >{{album.artist}}</li>
-                <li>{{album.releaseDate}}</li>
-                <li>{{album.ratingNum}}</li>
-                <li>{{album.isGood}}</li>
+                <li>
+                  <span>{{album.artist}}</span>
+                  <input type="text" ng-show='album.isUpdating' ng-model='album.artist'>
+                  <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                  <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Update</button>
+                </li>
+                <li>
+                  <span>{{album.releaseDate | date:"MM/dd/yyyy 'at' h:mma"}}</span>
+                  <input type="text" ng-show='album.isUpdating' ng-model='album.releaseDate'>
+                  <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                  <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Update</button>
+                </li>
+                <li><span>{{album.ratingNum}}</span>
+                  <input type="text" ng-show='album.isUpdating' ng-model='album.ratingNum'>
+                  <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                  <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Update</button>
+                </li>
+                <li><span>{{album.isGood}}</span>
+                  <input type="text" ng-show='album.isUpdating' ng-model='album.isGood'>
+                  <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                  <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Update</button>
+                </li>
                 <button ng-click='lessDetails(album)'>Less</button>
               </ul>
             </div>

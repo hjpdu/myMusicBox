@@ -48,7 +48,7 @@
     function updateOneAlbum(index, updatedAlbum){
       $http.put('/albums/' + updatedAlbum._id, updatedAlbum)
            .then(function(){
-             albums.splice(index,1, updatedAlbum);
+             albums.splice(index, 1 , updatedAlbum);
            })
            .catch(function(err){
              console.log(err);
