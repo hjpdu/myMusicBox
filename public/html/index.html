@@ -27,6 +27,17 @@
           <li ng-repeat ='album in albums track by $index'>
             <span>{{album.title}}</span>
             <button ng-click='deleteAlbum($index, album)'>&times;</button>
+            <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+            <button ng-click='moreDetails(album)'>More</button>
+            <div ng-show='album.isShowing'>
+              <ul>
+                <li >{{album.artist}}</li>
+                <li>{{album.releaseDate}}</li>
+                <li>{{album.ratingNum}}</li>
+                <li>{{album.isGood}}</li>
+                <button ng-click='lessDetails(album)'>Less</button>
+              </ul>
+            </div>
           </li>
         </ul>
 

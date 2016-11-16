@@ -9,6 +9,10 @@
     $scope.addAlbum = addAlbum;
     $scope.saveAlbum = saveAlbum;
     $scope.deleteAlbum = deleteAlbum;
+    $scope.updateAlbum = updateAlbum;
+    $scope.editAlbumRec = editAlbumRec;
+    $scope.moreDetails = moreDetails;
+    $scope.lessDetails = lessDetails;
 
     $scope.$watch(function(){
       return AlbumService.get();
@@ -26,6 +30,22 @@
     }
     function deleteAlbum(index, album){
       AlbumService.delete(index, album);
+    }
+    function updateAlbum(index, album){
+      AlbumService.update(index, album);
+      album.isUpdating = false;
+    }
+
+    function editAlbumRec(album){
+      album.isUpdating = true;
+    }
+
+    function moreDetails(album){
+      album.isShowing = true;
+    }
+
+    function lessDetails(album){
+      album.isShowing = false;
     }
 
   }
