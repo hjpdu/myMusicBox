@@ -3,73 +3,76 @@
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <Title> My Albums</Title>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+    <Title> Albums I <3 </Title>
   </head>
   <body>
     <div class="container">
       <div ng-controller="MainController">
-        <div class="row">
-          <h1>My Albums</h1>
+        <div class="row" id='title-area'>
+          <h1>Albums I <3 </h1>
           <button id='add-album-button'ng-click='addAlbum(newAlbum)' class="btn btn-block btn-large btn-primary">Add Album</button>
         </div>
-        <div class="row" ng-show='isAdding' id='input-area' class='form-group'>
+        <div class="row" ng-show='isAdding' id='input-area' class='input-group'>
 
           <div class="col-sm-4">
-            <p>Fill out the following information to add an album to the database!</p>
+            <p id='main-info'>Fill out the following information to add an album to the database!</p>
           </div>
           <div class="col-sm-8">
             <ul>
               <li>
               </li>
-              <li><input type="text" ng-model='newAlbum.title' placeholder="Title"></li>
-              <li><input type="text" ng-model='newAlbum.artist' placeholder="Artist"></li>
-              <li><input type="date" ng-model='newAlbum.releaseDate' placeholder="Release Date"></li>
-              <li><input type="number" ng-model='newAlbum.ratingNum' placeholder="Rating"></li>
+              <li><input class='form-control' type="text" ng-model='newAlbum.title' placeholder="Title"></li>
+              <li><input class='form-control' type="text" ng-model='newAlbum.artist' placeholder="Artist"></li>
+              <li><input class='form-control' type="date" ng-model='newAlbum.releaseDate' placeholder="Release Date"></li>
+              <li><input class='form-control' type="number" ng-model='newAlbum.ratingNum' placeholder="Rating"></li>
               <li><input type="checkbox"  ng-model='newAlbum.isGood' ng-true='true' ng-false = 'false'>This Album Was Good!</li>
-              <button ng-click='saveAlbum(newAlbum)' class="btn-success">Save</button>
-              <button ng-click='cancelOut()'class="btn-warning">Cancel</button>
+              <button id='main-save' type='button' class='btn btn-large btn-success' ng-click='saveAlbum(newAlbum)'>Save</button>
+              <button id='main-cancel' type='button' class='btn btn-large btn-warning' ng-click='cancelOut()'>Cancel</button>
             </ul>
           </div>
         </div>
         <div id='list-of-albums' class="row" ng-repeat='album in albums track by $index'>
-          <div class="col-sm-4">
+          <div class="col-sm-5">
             <div>
-              <input type="text" ng-show='album.isUpdating' ng-model='album.title'>
-              <span ng-hide='album.isUpdating'><h4>{{album.title}}</h2></span>
-                <div class="btn-group">
-                  <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
-                  <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                  <button ng-click='deleteAlbum($index, album)'>&times;</button>
-                  <button ng-click='moreDetails(album)'>More</button>
+              <button type='button' class='btn btn-link' ng-click='deleteAlbum($index, album)'>&times;</button>
+              <input class='update-input form-control-sm' type="text" ng-show='album.isUpdating' ng-model='album.title'>
+              <span ng-hide='album.isUpdating'><h4>{{album.title}}</h4></span>
+                <div class="btn-group btn-group" role='group'>
+                  <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
+                  <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                  <button type='button' class='btn btn-link' ng-click='moreDetails(album)'>More</button>
                 </div>
-
             </div>
           </div>
-          <div class="col-sm-8" ng-show='album.isShowing'>
+          <div class="col-sm-7" ng-show='album.isShowing'>
             <ul>
               <li>
-                <span>{{album.artist}}</span>
-                <input type="text" ng-show='album.isUpdating' ng-model='album.artist'>
-                <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
+                <span><h6>Artist: </h6> {{album.artist}}</span>
+                <input class='update-input form-control' type="text" ng-show='album.isUpdating' ng-model='album.artist'>
+                <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
               <li>
-                <span>{{album.releaseDate | date:"MM/dd/yyyy 'at' h:mma"}}</span>
-                <input type="text" ng-show='album.isUpdating' ng-model='album.releaseDate'>
-                <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
+                <span><h6>Released: </h6> {{album.releaseDate | date:"MM/dd/yyyy 'at' h:mma"}}</span>
+                <input class='update-input form-control' type="text" ng-show='album.isUpdating' ng-model='album.releaseDate'>
+                <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
-              <li><span>{{album.ratingNum}}</span>
-                <input type="text" ng-show='album.isUpdating' ng-model='album.ratingNum'>
-                <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
+              <li><span><h6>Rating: </h6> {{album.ratingNum}}</span>
+                <input class='update-input form-control' type="text" ng-show='album.isUpdating' ng-model='album.ratingNum'>
+                <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
-              <li><span>{{album.isGood}}</span>
-                <input type="text" ng-show='album.isUpdating' ng-model='album.isGood'>
-                <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
+              <li><span><h6>It's Good: </h6> {{album.isGood}}</span>
+                <input class='update-input form-control' type="text" ng-show='album.isUpdating' ng-model='album.isGood'>
+                <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
-              <button ng-click='lessDetails(album)'>Less</button>
+              <button type='button' class='btn btn-link' ng-click='lessDetails(album)'>Less</button>
             </ul>
           </div>
           <!-- <ul>

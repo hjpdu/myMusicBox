@@ -1,8 +1,116 @@
+/*http://fontcdn.org/*/
+
+.container {
+  margin-left: auto;
+  margin-right: +10%;
+  width: 100%;
+  font-family: 'Merriweather', serif;
+  font-size: 12px;
+  background-color: #b800be;
+  /*background: -webkit-linear-gradient( #b800be, #000000);*/
+}
+
 ul{
   list-style: none;
   margin-left: 0px;
 }
 
 #input-area{
-  background-color: skyblue;
+  background-color:   #b365ff;
+  font-size: 14px;
+  font-weight: bold;
+  /*background: -webkit-linear-gradient(#98ffcc, rgba(0,0,0,0));*/
+
+}
+
+#input-area input{
+  margin:4px;
+  border: none;
+  background-color: white;
+  color:#d4d4d4;
+
+}
+#title-area{
+}
+
+.form-control{
+  font-size: 32px;
+  font-family: 'Courgette', cursive;
+}
+
+.update-input{
+  font-size: 25px;
+}
+#main-save{
+  background-color:#b2f5d9;
+  color:#b365ff;
+
+}
+#main-cancel{
+  background-color: #ffe4cc;
+  color:#b365ff;
+
+}
+
+#main-info {
+
+  font-size: 18px;
+  margin:auto;
+}
+
+h1 {
+  margin-left: 3%;
+  font-family: 'Lobster', cursive;
+  font-size: 60px;
+  /*font-weight: bolder;*/
+  color:#98ffcc;
+}
+
+h4 {
+  font-family: 'Rokkitt', serif;
+  display: inline-block;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+h6 {
+  font-size: 15px;
+  display:inline-block;
+  font-weight: bold;
+}
+
+#add-album-button{
+  font-family: 'Rokkitt', serif;
+  font-size: 35px;
+  font-weight: bolder;
+  color:#b365ff;
+}
+
+.btn{
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+.btn-block{
+  background-color: #98ffcc;
+}
+
+.btn-link{
+  color: #5700ac;
+}
+
+.update-input{
+
+}
+
+.btn-link:hover{
+  color:#ffcc98;
+}
+
+.btn-group {
+  display:inline-block;
+}
+
+.btn-primary{
+  border: none;
 }
