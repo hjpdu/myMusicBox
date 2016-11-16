@@ -2,18 +2,19 @@
 <html ng-app='album-review-rec'>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
-    <Title> Albums I <3 </Title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'/ >
+    <Title> Albums</Title>
   </head>
   <body>
     <div class="container">
       <div ng-controller="MainController">
         <div class="row" id='title-area'>
-          <h1>Albums I <3 </h1>
+          <h1>Albums</h1>
           <button id='add-album-button'ng-click='addAlbum(newAlbum)' class="btn btn-block btn-large btn-primary">Add Album</button>
         </div>
         <div class="row" ng-show='isAdding' id='input-area' class='input-group'>
@@ -32,7 +33,7 @@
                 maxlength="2" required></li>
               <li><input type="checkbox"  ng-model='newAlbum.isGood' ng-true='true' ng-false = 'false'>This Album Was Good!</li>
               <button id='main-save' type='button' class='btn btn-large btn-success' ng-click='saveAlbum(newAlbum)'>Save</button>
-              <button id='main-cancel' type='button' class='btn btn-large btn-warning' ng-click='cancelOut()'>Cancel</button>
+              <button id='main-cancel' type='button' class='btn btn-large btn-warning' ng-click='cancelOut()'>Close</button>
             </ul>
           </div>
         </div>
@@ -41,7 +42,7 @@
             <div>
               <button type='button' class='btn btn-link' ng-click='deleteAlbum($index, album)'>&times;</button>
               <input class='update-input form-control-sm' type="text" ng-show='album.isUpdating' ng-model='album.title'>
-              <span ng-hide='album.isUpdating'><h4>{{album.title}}</h4></span>
+              <span ng-hide='album.isUpdating'><h4>{{album.title}}</h4> <span>-{{album.artist}}</span></span>
                 <div class="btn-group btn-group" role='group'>
                   <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
                   <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
@@ -73,53 +74,18 @@
                 <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
                 <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
-              <button type='button' class='btn btn-link' ng-click='lessDetails(album)'>Less</button>
+              <button type='button' class='btn btn-outline-warning' ng-click='lessDetails(album)'>Less</button>
             </ul>
           </div>
-          <!-- <ul>
-            <li ng-repeat ='album in albums track by $index'>
-              <input type="text" ng-show='album.isUpdating' ng-model='album.title'>
-              <span ng-hide='album.isUpdating'>{{album.title}}</span>
-              <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
-              <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-              <button ng-click='deleteAlbum($index, album)'>&times;</button>
-              <button ng-click='moreDetails(album)'>More</button>
-              <div ng-show='album.isShowing'>
-                <ul>
-                  <li>
-                    <span>{{album.artist}}</span>
-                    <input type="text" ng-show='album.isUpdating' ng-model='album.artist'>
-                    <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                    <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
-                  </li>
-                  <li>
-                    <span>{{album.releaseDate | date:"MM/dd/yyyy 'at' h:mma"}}</span>
-                    <input type="text" ng-show='album.isUpdating' ng-model='album.releaseDate'>
-                    <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                    <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
-                  </li>
-                  <li><span>{{album.ratingNum}}</span>
-                    <input type="text" ng-show='album.isUpdating' ng-model='album.ratingNum'>
-                    <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                    <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
-                  </li>
-                  <li><span>{{album.isGood}}</span>
-                    <input type="text" ng-show='album.isUpdating' ng-model='album.isGood'>
-                    <button ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                    <button ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
-                  </li>
-                  <button ng-click='lessDetails(album)'>Less</button>
-                </ul> -->
           </div>
 
         </div>
     </div>
 
-
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js'></script>
     <script src='js/app.js'></script>
+
     <script src='js/controllers/main.controller.js'></script>
     <script src='js/services/album.service.js'></script>
   </body>
