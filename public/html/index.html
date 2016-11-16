@@ -25,10 +25,11 @@
             <ul>
               <li>
               </li>
-              <li><input class='form-control' type="text" ng-model='newAlbum.title' placeholder="Title"></li>
-              <li><input class='form-control' type="text" ng-model='newAlbum.artist' placeholder="Artist"></li>
-              <li><input class='form-control' type="date" ng-model='newAlbum.releaseDate' placeholder="Release Date"></li>
-              <li><input class='form-control' type="number" ng-model='newAlbum.ratingNum' placeholder="Rating"></li>
+              <li><input class='form-control' type="text" ng-model='newAlbum.title' placeholder="Title" required></li>
+              <li><input class='form-control' type="text" ng-model='newAlbum.artist' placeholder="Artist" required></li>
+              <li><input class='form-control' type="date" ng-model='newAlbum.releaseDate' placeholder="Release Date" required></li>
+              <li><input class='form-control' type="number" ng-model='newAlbum.ratingNum' placeholder="Rating - X/10" min="1" max="10"
+                maxlength="2" required></li>
               <li><input type="checkbox"  ng-model='newAlbum.isGood' ng-true='true' ng-false = 'false'>This Album Was Good!</li>
               <button id='main-save' type='button' class='btn btn-large btn-success' ng-click='saveAlbum(newAlbum)'>Save</button>
               <button id='main-cancel' type='button' class='btn btn-large btn-warning' ng-click='cancelOut()'>Cancel</button>
@@ -117,6 +118,7 @@
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js'></script>
     <script src='js/app.js'></script>
     <script src='js/controllers/main.controller.js'></script>
     <script src='js/services/album.service.js'></script>
