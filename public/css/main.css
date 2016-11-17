@@ -6,7 +6,7 @@ body .container {
   font-family: 'Merriweather', serif;
   font-size: 12px;
   /*background-color: #b800be;*/
-  /*background: -webkit-linear-gradient( #b800be, #000000);*/
+  /*background: -webkit-linear-gradient(#cc98ff,#f2e5ff, rgba(0,0,0,0));*/
 }
 
 ul {
@@ -18,8 +18,21 @@ ul {
   background-color:   #b365ff;
   font-size: 14px;
   font-weight: bold;
-  /*background: -webkit-linear-gradient(#98ffcc, rgba(0,0,0,0));*/
 
+
+}
+
+#title-p{
+  margin-left: 3%;
+  margin-top:0px;
+  color: #b365ff;
+}
+
+#title-p input{
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-bottom-color: #98ffcc;
 }
 
 #input-area input{
@@ -59,11 +72,12 @@ ul {
 }
 
 h1 {
-  margin-left: 3%;
+  margin-left: 2%;
+  margin-bottom: auto;
   font-family: 'Lobster', cursive;
   font-size: 60px;
   /*font-weight: bolder;*/
-  /*color:#98ffcc;*/
+  color:#b365ff;
 }
 
 h4 {
@@ -95,8 +109,20 @@ h6 {
   background-color: #98ffcc;
 }
 
-.btn-link{
+/*.btn-link{
   color: #5700ac;
+}*/
+
+.link-less{
+  color:#ffcc98;
+}
+
+.link-more{
+  color:#ffcc98
+}
+
+.edit-btn {
+  color:#98ffcc;
 }
 
 

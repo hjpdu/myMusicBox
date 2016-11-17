@@ -8,14 +8,19 @@
     <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'/ >
-    <Title> Albums</Title>
+    <Title>Albums i <3</Title>
   </head>
   <body>
     <div class="container">
       <div ng-controller="MainController">
         <div class="row" id='title-area'>
-          <h1>Albums</h1>
+          <h1>Albums i <3</h1>
+          <p id='title-p'>Search: <input type="text" ng-model='searchBox'></p>
           <button id='add-album-button'ng-click='addAlbum(newAlbum)' class="btn btn-block btn-large btn-primary">Add Album</button>
+
+          <!-- <div class="form-control">
+
+          </div> -->
         </div>
         <div class="row" ng-show='isAdding' id='input-area' class='input-group'>
 
@@ -37,7 +42,7 @@
             </ul>
           </div>
         </div>
-        <div  class="row" ng-repeat='album in albums track by $index'>
+        <div  class="row" ng-repeat='album in albums | filter:searchBox track by $index'>
           <div class="col-sm-5">
             <div>
               <button type='button' class='btn btn-link' ng-click='deleteAlbum($index, album)'>&times;</button>
@@ -46,7 +51,7 @@
                 <div class="btn-group btn-group" role='group'>
                   <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
                   <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
-                  <button type='button' class='btn btn-link' ng-click='moreDetails(album)'>More</button>
+                  <button type='button' class='btn btn-link link-more' ng-click='moreDetails(album)'>More</button>
                 </div>
             </div>
           </div>
@@ -55,7 +60,7 @@
               <li>
                 <span><h6>Artist: </h6> {{album.artist}}</span>
                 <input class='update-input form-control' type="text" ng-show='album.isUpdating' ng-model='album.artist'>
-                <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+                <button type='button' class='btn btn-link edit-btn' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
                 <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
               <li>
@@ -74,7 +79,7 @@
                 <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
                 <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
-              <button type='button' class='btn btn-outline-warning' ng-click='lessDetails(album)'>Less</button>
+              <button type='button' class='btn btn-link link-less' ng-click='lessDetails(album)'>Less</button>
             </ul>
           </div>
           </div>
