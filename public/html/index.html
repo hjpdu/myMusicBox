@@ -74,7 +74,7 @@
                 <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
               <li>
-                <span><h6>Released: </h6> {{album.releaseDate | date:"MM/dd/yyyy 'at' h:mma"}}</span>
+                <span><h6>Released: </h6> {{album.releaseDate | date:"MM/dd/yyyy"}}</span>
                 <input class='update-input form-control' type="text" ng-show='album.isUpdating' ng-model='album.releaseDate'>
                 <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
                 <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
