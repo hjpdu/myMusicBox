@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var albumSchema = new Schema({
   cover:{
     type: String,
-
+    require: false
   },
 
   title: {
@@ -29,7 +29,7 @@ var albumSchema = new Schema({
 
   ratingNum: {
     type: Number,
-    // required: false,
+    required: false,
     max:10
   }
 });
