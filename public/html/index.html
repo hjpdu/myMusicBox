@@ -44,12 +44,12 @@
           </div>
         </div>
         <div  class="row" ng-repeat='album in albums | filter:searchBox track by $index'>
-          <div class="col-sm-5">
+          <div class="col-sm-4">
             <div>
               <button type='button' class='btn btn-link' ng-click='deleteAlbum($index, album)'>&times;</button>
               <input class='update-input form-control-sm' type="text" ng-show='album.isUpdating' ng-model='album.title'>
               <!-- <span ng-hide='album.isUpdating'><h4>{{album.title}}</h4>  -->
-                <button type='button' class='btn btn-link titlee-edit' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>{{album.title }}</button>
+                <button type='button' class='btn btn-link title-edit' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>{{album.title }}</button>
                 <span>-{{album.artist}}</span></span>
                 <div class="btn-group btn-group" role='group'>
                   <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
@@ -58,9 +58,15 @@
                 </div>
             </div>
           </div>
-          <div class="col-sm-7" ng-show='album.isShowing'>
+          <div class="col-sm-2"></div>
+          <div class="col-sm-2" ng-show='album.isShowing'>
+              <img ng-src="{{album.cover}}" class='cover-size'>
+              <button type='button' class='btn btn-link cover-edit' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
+              <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)'ng-show='album.isUpdating'>Save</button>
+              <input type="String" ng-show='album.isUpdating' ng-model='album.cover' placeholder="drop an image url in here!">
+          </div>
+          <div class="col-sm-4" ng-show='album.isShowing'>
             <ul>
-              <li><img ng-src="{{album.cover}}" class='cover-size'>{{album.cover}}</li>
               <li>
                 <span><h6>Artist: </h6> {{album.artist}}</span>
                 <input class='update-input form-control' type="text" ng-show='album.isUpdating' ng-model='album.artist'>
@@ -79,7 +85,8 @@
                 <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>
               <li><span><h6>It's Good: </h6> {{album.isGood}}</span>
-                <input class='update-input form-control' type="text" ng-show='album.isUpdating' ng-model='album.isGood'>
+                <input class='update-input form-control' type="checkbox" ng-true='true' ng-false='false'
+                ng-show='album.isUpdating' ng-model='album.isGood'>
                 <button type='button' class='btn btn-link' ng-click='editAlbumRec(album)' ng-hide='album.isUpdating'>Edit</button>
                 <button type='button' class='btn btn-link' ng-click='updateAlbum($index, album)' ng-show='album.isUpdating'>Save</button>
               </li>

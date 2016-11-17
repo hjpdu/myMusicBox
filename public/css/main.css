@@ -5,10 +5,16 @@ body .container {
   height: 100%;
   font-family: 'Merriweather', serif;
   font-size: 12px;
-  /*background-color: #b800be;*/
+  /*background-color: #ccc8cf;*/
   /*background: -webkit-linear-gradient(#cc98ff,#f2e5ff, rgba(0,0,0,0));*/
 }
 
+.cover-size{
+  width: 250px;
+  height: 250px;
+  display:inline-block;
+  margin: 4px;
+}
 ul {
   list-style: none;
   margin-left: 0px;
@@ -35,6 +41,10 @@ ul {
   border-bottom-color: #98ffcc;
 }
 
+#title-p input:hover{
+  border-color:#b365ff;
+}
+
 #input-area input{
   margin:4px;
   border: none;
@@ -53,6 +63,7 @@ ul {
 .update-input{
   font-size: 25px;
 }
+
 #main-save{
   background-color:#b2f5d9;
   color:#b365ff;
